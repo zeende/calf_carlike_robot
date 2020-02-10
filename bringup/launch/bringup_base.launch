@@ -1,0 +1,8 @@
+<launch>
+    <node pkg="serial_port" type="port_SubAndPub.py" name="serial_data_contral" launch-prefix="xterm -e"/>
+    <node pkg="serial_port" type="keyboard.py" name="car_teleop" launch-prefix="xterm -e"/>
+    <node pkg="odom_tf_package" type="odom_tf_pub" name="odom_tf_pub" launch-prefix="xterm -e" ></node>
+    
+    <include file="$(find bringup)/launch/include/rplidar.launch" />
+
+</launch>

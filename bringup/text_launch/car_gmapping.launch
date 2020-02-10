@@ -1,0 +1,5 @@
+<launch>
+<include file="$(find bringup)/text_launch/rplidar.launch" />
+<include file="$(find bringup)/text_launch/slam_gmapping.xml" />
+
+</launch>
