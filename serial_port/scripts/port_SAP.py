@@ -26,8 +26,8 @@ def callback(data):
 
     str1=str(int(data.linear.x*1000))
     str2=str(int(data.angular.z*1000))
-    ser.write("%s,%s\n"%(str1,str2))
-    print("----%s,%s"%(str1,str2))
+    ser.write("%s,0,%s\n"%(str1,str2))
+    print("---- %s ,%s ----"%(str1,str2))
     #time.sleep(0.25)
     # print("%d,%d"%(data.linear.x,data.angular.z))
 
@@ -52,16 +52,16 @@ def SubscribeAndPublish():
         #print("######\n")
 
         msg = header()
-        data1 = int(list_str[0])
-        data2 = int(list_str[1])
-        data3 = int(list_str[2])
-        msg.num1 = data1
-        msg.num2 = data2
-        msg.num3 = data3
-        # msg.num1 = x 
-        # msg.num2 = 0 
-        # msg.num3 = th 
-        pub.publish(msg)
+        # data1 = int(list_str[0])
+        # data2 = int(list_str[1])
+        # data3 = int(list_str[2])
+        # msg.num1 = data1
+        # msg.num2 = data2
+        # msg.num3 = data3
+        # # msg.num1 = x 
+        # # msg.num2 = 0 
+        # # msg.num3 = th 
+        # pub.publish(msg)
         rate.sleep()
 
 if __name__ == '__main__':
