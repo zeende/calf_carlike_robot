@@ -3,6 +3,7 @@
  #include <nav_msgs/Odometry.h>
  #include </home/max/catkin_ws/devel/include/serial_port/header.h>
 
+
     double x = 0.0;
     double y = 0.0;
     double th = 0.0;
@@ -10,8 +11,7 @@
     double vx = 0;
     double vy = 0;
     double vth = 0;
-    double dt = 0.1;
-
+    double dt ;
 
 void messageCallback(const serial_port::header::ConstPtr& msg)
 {
@@ -19,8 +19,7 @@ void messageCallback(const serial_port::header::ConstPtr& msg)
     vx = double(msg->num1)/1000;
     vy = double(msg->num2)/100;
     vth = double(msg->num3)/1000;
-    ROS_INFO("I heard: [%f] [%f] [%f]", vx, vy, vth);
-
+    ROS_INFO("Vx = [%f] Vth = [%f]", vx,  vth);
 }
 
 int main(int argc, char **argv)
@@ -36,16 +35,16 @@ int main(int argc, char **argv)
     last_time = ros::Time::now();
 
 
-    ros::Rate r(10);//以1Hz的速率发布里程信息，
+    ros::Rate r(20);//以20Hz的速率发布里程信息，
     while(n.ok())
     {
-        ros::spinOnce();               // check for incoming messages
+        ros::spinOnce();            
         current_time = ros::Time::now();
 
         //compute odometry in a typical way given the velocities of the robot
         double dt = (current_time - last_time).toSec();
-        double delta_x = (vx * cos(th) - vy * sin(th)) * dt;
-        double delta_y = (vx * sin(th) + vy * cos(th)) * dt;
+        double delta_x = (vx * cos(th)) * dt;
+        double delta_y = (vx * sin(th)) * dt;
         double delta_th = vth * dt;
 
         x += delta_x;
