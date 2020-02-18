@@ -9,8 +9,31 @@
     <rosparam file="$(find bringup)/param/move_base_params.yaml" command="load" />
     
     <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
-    <param name="controller_frequency" value="10.0" />
+    <!--<param name="controller_frequency" value="10" />
+    <param name="controller_patiente" value="15.0"/>-->
    </node>
+   
+           <!--  ************** Navigation ***************  -->
+
+           
+	<!--<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+  	  	<rosparam file="$(find teb_local_planner_tutorials)/cfg/carlike/costmap_common_params.yaml" command="load" ns="global_costmap" />
+  	 	<rosparam file="$(find teb_local_planner_tutorials)/cfg/carlike/costmap_common_params.yaml" command="load" ns="local_costmap" />
+  		<rosparam file="$(find teb_local_planner_tutorials)/cfg/carlike/local_costmap_params.yaml" command="load" />
+  		<rosparam file="$(find teb_local_planner_tutorials)/cfg/carlike/global_costmap_params.yaml" command="load" />
+  		<rosparam file="$(find teb_local_planner_tutorials)/cfg/carlike/teb_local_planner_params.yaml" command="load" />
+
+		<param name="base_global_planner" value="global_planner/GlobalPlanner" />
+		<param name="planner_frequency" value="1.0" />
+		<param name="planner_patience" value="5.0" />
+
+		<param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+		<param name="controller_frequency" value="5.0" />
+		<param name="controller_patience" value="15.0" />
+ <param name="clearing_rotation_allowed" value="false" /> 
+	</node>-->
+
+
 <!-- ××××××××××××××××××××××××××××××××××××××××××××　华丽分割线　××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××　-->  
 
 	<node name="map_server" pkg="map_server" type="map_server" args="$(find teb_local_planner_tutorials)/maps/maze.yaml" output="screen">

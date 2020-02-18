@@ -1,9 +1,9 @@
 obstacle_range: 2.5
-raytrace_range: 3.0
-footprint: [[-0.008, -0.015], [-0.008, 0.015],[0.022, 0.015], [0.022, -0.015]]
+raytrace_range: 3.5
+footprint: [[-0.08, -0.15], [-0.08, 0.15],[0.22, 0.15], [0.22, -0.15]]
 #robot_radius: ir_of_robot
-inflation_radius: 0.01
-transform_tolerance: 0.02
+inflation_radius: 0.1
+transform_tolerance: 0.2
 
 observation_sources: scan
 
